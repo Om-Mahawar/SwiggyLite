@@ -3,7 +3,8 @@ import { Text,View, Image } from "react-native";
 import { Card } from "react-native-paper";
 
 export const RestaurantCard = styled(Card)`
-    background-color: ${(props) => props.theme.colors.bg.primary};;
+    background-color: ${(props) => props.theme.colors.bg.primary};
+    margin-bottom:${(props) => props.theme.space[3]}
 `;
 
 export const RestaurantCardCover = styled(Card.Cover)`

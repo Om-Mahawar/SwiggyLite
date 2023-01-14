@@ -4,6 +4,7 @@ import {
     SafeAreaView,
     View,
     StatusBar,
+    FlatList
   } from "react-native";
 import styled from "styled-components/native";
 import { Searchbar } from "react-native-paper";
@@ -18,12 +19,11 @@ const SearchView = styled(View)`
   padding: ${(props) => props.theme.space[3]};;
 `;
 
-const ListView = styled(View)`
-  flex-grow: 1;
-  background-color: ${(props) => props.theme.colors.bg.secondary};;
-  padding: ${(props) => props.theme.space[3]};;
-`;
-
+const RestaurantList = styled(FlatList).attrs({
+  contentContainerStyle:{
+    padding:16,
+  }
+})``;
 
 export const RestaurantScreen = () => {
     return (
@@ -31,9 +31,12 @@ export const RestaurantScreen = () => {
         <SearchView>
           <Searchbar placeholder="Search" />
         </SearchView>
-        <ListView>
-          <RestaurantInfoCard />
-        </ListView>
+        <RestaurantList
+          data={[{name:1},{name:2},{name:1},{name:2},{name:1},{name:2},{name:1},{name:2}]}
+          renderItem={() => <RestaurantInfoCard />}
+          keyExtractor={item => item.id}
+          contentContainerStyle = {{padding:16}}
+        />
     </Container>
     );
 };
