@@ -6,6 +6,7 @@ import { Text } from "react-native-paper";
 
 import { SafeArea } from "../../components/utility/safe-area.component";
 import { RestaurantNavigator } from './restaurants.navigator';
+import { MapScreen } from '../../features/map/screens/map.screen';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -24,13 +25,6 @@ const createScreenOptions = ({ route }) => {
   };
 };
 
-const Map = () => {
-  return (
-    <SafeArea>
-      <Text>Map Component</Text>
-    </SafeArea>
-  )
-};
 const Settings = () => {
   return (
     <SafeArea>
@@ -54,7 +48,7 @@ export const AppNavigation = () => {
             />
             <Tab.Screen
               name="Map"
-              component={Map}
+              component={MapScreen}
               options={{
                 tabBarLabel: 'Map',
               }}
